@@ -1,0 +1,11 @@
+# 博客基础配置（你可以改成自己的信息）
+title: Jane的个人博客
+description: 记录学习与生活
+baseurl: "" # 不用改，仓库名是xxx.github.io就留空
+url: "https://JaneMiraitowa.github.io" # 改成你的博客地址
+
+# 主题配置（不用改）
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
