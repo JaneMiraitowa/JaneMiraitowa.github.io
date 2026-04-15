@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-meta">
+    {{ page.date | date: "%Y年%m月%d日" }}
+    {% if page.categories.size > 0 %}
+    <span class="post-categories">
+      {% for cat in page.categories %}
+      <a href=" ">{{ cat }}</a >
+      {% endfor %}
+    </span>
+    {% endif %}
+  </div>
+  <div class="post-content" style="margin-top:2rem;line-height:1.8;font-size:16px">
+    {{ content }}
+  </div>
+</article>
