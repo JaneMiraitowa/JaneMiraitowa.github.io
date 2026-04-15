@@ -4,7 +4,7 @@
   <p class="author-bio">不断学习✨<br>热爱技术与生活🚀<br>保持热爱 奔赴山海</p >
   <div class="author-stats">
     <div class="stat-item">
-      <span class="stat-num">1</span>
+      <span class="stat-num">{{ site.posts | size }}</span>
       <p class="stat-label">文章数</p >
     </div>
     <div class="stat-item">
@@ -17,60 +17,36 @@
 <div class="widget countdown-widget">
   <h4 class="widget-title">人生时间进度</h4>
   <div class="countdown-item">
-    <p>今日已过去 <span id="today-percent">90.1%</span></p >
+    <p>今日已过去 <span id="today-percent">0%</span></p >
     <div class="progress-bar">
-      <div class="progress-fill today" style="width: 90.1%;"></div>
+      <div class="progress-fill today" style="width: 0%;"></div>
     </div>
   </div>
   <div class="countdown-item">
-    <p>本周已过去 <span id="week-percent">55.7%</span></p >
+    <p>本周已过去 <span id="week-percent">0%</span></p >
     <div class="progress-bar">
-      <div class="progress-fill week" style="width: 55.7%;"></div>
-    </div>
-  </div>
-  <div class="countdown-item">
-    <p>本月已过去 <span id="month-percent">49.7%</span></p >
-    <div class="progress-bar">
-      <div class="progress-fill month" style="width: 49.7%;"></div>
-    </div>
-  </div>
-  <div class="countdown-item">
-    <p>本年已过去 <span id="year-percent">28.7%</span></p >
-    <div class="progress-bar">
-      <div class="progress-fill year" style="width: 28.7%;"></div>
+      <div class="progress-fill week" style="width: 0%;"></div>
     </div>
   </div>
 </div>
 
 <script>
 function updateProgress() {
-  const now = new Date();
-  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const todayEnd = new Date(todayStart.getTime() + 86400000);
-  const todayPercent = ((now - todayStart) / (todayEnd - todayStart)) * 100;
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const todayEnd = new Date(todayStart.getTime() + 86400000);
+    const todayPercent = ((now - todayStart) / (todayEnd - todayStart)) * 100;
+    
+    const weekStart = new Date(todayStart);
+    weekStart.setDate(todayStart.getDate() - todayStart.getDay());
+    const weekEnd = new Date(weekStart.getTime() + 604800000);
+    const weekPercent = ((now - weekStart) / (weekEnd - weekStart)) * 100;
 
-  const weekStart = new Date(todayStart);
-  weekStart.setDate(todayStart.getDate() - todayStart.getDay());
-  const weekEnd = new Date(weekStart.getTime() + 604800000);
-  const weekPercent = ((now - weekStart) / (weekEnd - weekStart)) * 100;
-
-  const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
-  const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  const monthPercent = ((now - monthStart) / (monthEnd - monthStart)) * 100;
-
-  const yearStart = new Date(now.getFullYear(), 0, 1);
-  const yearEnd = new Date(now.getFullYear() + 1, 0, 1);
-  const yearPercent = ((now - yearStart) / (yearEnd - yearStart)) * 100;
-
-  document.querySelector('.progress-fill.today').style.width = `${todayPercent.toFixed(1)}%`;
-  document.querySelector('.progress-fill.week').style.width = `${weekPercent.toFixed(1)}%`;
-  document.querySelector('.progress-fill.month').style.width = `${monthPercent.toFixed(1)}%`;
-  document.querySelector('.progress-fill.year').style.width = `${yearPercent.toFixed(1)}%`;
-
-  document.getElementById('today-percent').textContent = `${todayPercent.toFixed(1)}%`;
-  document.getElementById('week-percent').textContent = `${weekPercent.toFixed(1)}%`;
-  document.getElementById('month-percent').textContent = `${monthPercent.toFixed(1)}%`;
-  document.getElementById('year-percent').textContent = `${yearPercent.toFixed(1)}%`;
+    document.querySelector('.today').style.width = `${todayPercent.toFixed(1)}%`;
+    document.querySelector('.week').style.width = `${weekPercent.toFixed(1)}%`;
+    
+    document.getElementById('today-percent').textContent = `${todayPercent.toFixed(1)}%`;
+    document.getElementById('week-percent').textContent = `${weekPercent.toFixed(1)}%`;
 }
 updateProgress();
 setInterval(updateProgress, 1000);
