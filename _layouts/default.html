@@ -1,52 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>{{ page.title | default: site.title }}</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!-- 引入图标库 -->
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 核心样式文件 -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <!-- 不蒜子访问统计（可选，后续加功能用） -->
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta charset="UTF-8">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-<!-- 顶部导航栏（已包含技术笔记链接） -->
-<header class="header">
+  <header class="header">
     <div class="nav-container">
-        <div class="logo">
-            <i class="fa-solid fa-code"></i>
-            <span>Jane的个人博客</span>
-        </div>
-        <nav class="nav-links">
-            <a href=" ">首页</a >
-            <a href="/category/生活日常/">生活日常</a >
-            <a href="/category/技术笔记/">技术笔记</a >
-            <a href="/about.html">关于我</a >
-        </nav>
+      <div class="logo">
+        <i class="fa-solid fa-code"></i>
+        <span>Jane的个人博客</span>
+      </div>
+      <nav class="nav-links">
+        <a href=" ">首页</a >
+        <a href="/category/生活日常/">生活日常</a >
+        <a href="/category/技术笔记/">技术笔记</a >
+        <a href="/about.html">关于我</a >
+      </nav>
     </div>
-</header>
+  </header>
 
-<!-- 主体双栏容器 -->
-<div class="container">
+  <div class="container">
     <main class="main-content">
-        {{ content }}
+      {{ content }}
     </main>
     <aside class="sidebar">
-        {% include sidebar.html %}
+      {% include sidebar.html %}
     </aside>
-</div>
+  </div>
 
-<!-- 页脚 -->
-<footer class="footer">
-    <div class="footer-content">
-        <p>© {{ site.time | date: "%Y" }} Jane的个人博客 | Powered by Jekyll & GitHub Pages</p >
-        <p class="stats">
-            总访问量：<span id="busuanzi_value_site_pv"></span> 次 | 
-            访客数：<span id="busuanzi_value_site_uv"></span> 位
-        </p >
-    </div>
-</footer>
+  <footer class="footer">
+    <p>© {{ site.time | date: "%Y" }} Jane的个人博客 | Powered by Jekyll & GitHub Pages</p >
+  </footer>
 </body>
 </html>
