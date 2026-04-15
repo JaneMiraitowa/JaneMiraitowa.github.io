@@ -2,7 +2,6 @@ title: Jane的个人博客
 description: 个人学习 | 生活记录 | 网络安全
 baseurl: ""
 url: "https://janemiraitowa.github.io"
-# 核心：禁用Jekyll默认主题，必须写这行！
 theme: null
 
 plugins:

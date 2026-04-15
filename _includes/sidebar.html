@@ -1,11 +1,10 @@
-<!-- 作者信息卡：修复头像路径，去掉多余斜杠 -->
 <div class="widget author-card">
-    < img class="author-avatar" src="/assets/images/avatar.jpg" alt="我的头像">
+    < img class="author-avatar" src="https://picsum.photos/id/64/200/200" alt="我的头像">
     <h3 class="author-name">JaneMiraitowa</h3>
-    <p class="author-bio">不断学习<br>热爱生活✨<br>积极向上 奔赴山海🚀</p >
+    <p class="author-bio">不断学习✨<br>热爱技术与生活🚀<br>保持热爱 奔赴山海</p >
     <div class="author-stats">
         <div class="stat-item">
-            <span class="stat-num">{{ site.posts | size }}</span>
+            <span class="stat-num">1</span>
             <p class="stat-label">文章数</p >
         </div>
         <div class="stat-item">
@@ -15,58 +14,54 @@
     </div>
 </div>
 
-<!-- 人生时间进度 -->
 <div class="widget countdown-widget">
     <h4 class="widget-title">人生时间进度</h4>
     <div class="countdown-item">
-        <p>今日已过去 <span id="today-percent">0%</span></p >
+        <p>今日已过去 <span id="today-percent">86.2%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill today" style="width: 0%;"></div>
+            <div class="progress-fill today" style="width: 86.2%;"></div>
         </div>
     </div>
     <div class="countdown-item">
-        <p>本周已过去 <span id="week-percent">0%</span></p >
+        <p>本周已过去 <span id="week-percent">55.2%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill week" style="width: 0%;"></div>
+            <div class="progress-fill week" style="width: 55.2%;"></div>
         </div>
     </div>
     <div class="countdown-item">
-        <p>本月已过去 <span id="month-percent">0%</span></p >
+        <p>本月已过去 <span id="month-percent">49.5%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill month" style="width: 0%;"></div>
+            <div class="progress-fill month" style="width: 49.5%;"></div>
         </div>
     </div>
     <div class="countdown-item">
-        <p>本年已过去 <span id="year-percent">0%</span></p >
+        <p>本年已过去 <span id="year-percent">28.7%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill year" style="width: 0%;"></div>
+            <div class="progress-fill year" style="width: 28.7%;"></div>
         </div>
     </div>
 </div>
 
 <script>
-// 倒计时自动更新逻辑
 function updateProgress() {
     const now = new Date();
-    // 今日进度
     const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const todayEnd = new Date(todayStart.getTime() + 24 * 60 * 60 * 1000);
+    const todayEnd = new Date(todayStart.getTime() + 86400000);
     const todayPercent = ((now - todayStart) / (todayEnd - todayStart)) * 100;
-    // 本周进度
+
     const weekStart = new Date(todayStart);
     weekStart.setDate(todayStart.getDate() - todayStart.getDay());
-    const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const weekEnd = new Date(weekStart.getTime() + 604800000);
     const weekPercent = ((now - weekStart) / (weekEnd - weekStart)) * 100;
-    // 本月进度
+
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
     const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 1);
     const monthPercent = ((now - monthStart) / (monthEnd - monthStart)) * 100;
-    // 本年进度
+
     const yearStart = new Date(now.getFullYear(), 0, 1);
     const yearEnd = new Date(now.getFullYear() + 1, 0, 1);
     const yearPercent = ((now - yearStart) / (yearEnd - yearStart)) * 100;
 
-    // 更新进度条和百分比
     document.querySelector('.progress-fill.today').style.width = `${todayPercent.toFixed(1)}%`;
     document.querySelector('.progress-fill.week').style.width = `${weekPercent.toFixed(1)}%`;
     document.querySelector('.progress-fill.month').style.width = `${monthPercent.toFixed(1)}%`;
