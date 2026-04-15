@@ -5,8 +5,10 @@ baseurl: ""
 url: "https://janemiraitowa.github.io"
 github_username: JaneMiraitowa
 
-# Build settings
+# 核心：禁用默认主题，必须写这行！
 theme: null
+
+# 构建设置
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -14,8 +16,14 @@ plugins:
 # 文章摘要
 excerpt_separator: <!--more-->
 
-# 分类
+# 分类配置
 collections:
   category:
     output: true
     permalink: /category/:name/
+
+# 代码高亮
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM

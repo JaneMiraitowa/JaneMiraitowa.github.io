@@ -19,7 +19,7 @@ a:hover {
     color: #b4befe;
 }
 
-/* 导航栏美化 */
+/* 导航栏 */
 .header {
     background-color: #181825;
     padding: 15px 20px;
@@ -27,7 +27,6 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(10px);
 }
 .nav-container {
     max-width: 1200px;
@@ -86,10 +85,6 @@ a:hover {
     background-color: #313244;
     color: #cdd6f4;
     outline: none;
-    transition: border-color 0.3s;
-}
-.search-box input:focus {
-    border-color: #89b4fa;
 }
 .search-btn {
     padding: 6px 16px;
@@ -99,10 +94,6 @@ a:hover {
     color: #1e1e2e;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s;
-}
-.search-btn:hover {
-    transform: translateY(-2px);
 }
 
 /* 主体容器 */
@@ -136,14 +127,13 @@ a:hover {
     color: #a6adc8;
     cursor: pointer;
     font-size: 1rem;
-    transition: color 0.3s;
 }
 .tab.active {
     color: #89b4fa;
     border-bottom: 2px solid #89b4fa;
 }
 
-/* 文章卡片（核心美化） */
+/* 文章卡片 */
 .post-card {
     background: linear-gradient(145deg, #313244, #181825);
     border-radius: 12px;
@@ -165,7 +155,6 @@ a:hover {
     height: 130px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 .post-info {
     flex: 1;
@@ -182,16 +171,10 @@ a:hover {
     display: flex;
     gap: 15px;
 }
-.post-meta span {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
 .post-excerpt {
     font-size: 1rem;
     color: #cdd6f4;
     margin-bottom: 12px;
-    line-height: 1.6;
 }
 .post-category {
     font-size: 0.85rem;
@@ -210,13 +193,7 @@ a:hover {
     border: 1px solid #313244;
     border-radius: 20px;
     color: #cdd6f4;
-    font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.3s;
-}
-.more-btn:hover {
-    border-color: #89b4fa;
-    color: #89b4fa;
 }
 
 /* 侧边栏组件 */
@@ -247,7 +224,6 @@ a:hover {
     margin-bottom: 12px;
     object-fit: cover;
     border: 3px solid #89b4fa;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 .author-name {
     font-size: 1.3rem;
@@ -276,7 +252,7 @@ a:hover {
     color: #a6adc8;
 }
 
-/* 进度条样式 */
+/* 倒计时进度条 */
 .countdown-item {
     margin-bottom: 15px;
 }
@@ -302,7 +278,7 @@ a:hover {
 .progress-fill.month { background: #f38ba8; }
 .progress-fill.year { background: #a6e3a1; }
 
-/* 页脚美化 */
+/* 页脚 */
 .footer {
     background-color: #181825;
     padding: 30px 0;
@@ -315,12 +291,8 @@ a:hover {
     text-align: center;
     color: #a6adc8;
 }
-.footer .stats {
-    margin-top: 8px;
-    font-size: 0.9rem;
-}
 
-/* 响应式适配 */
+/* 响应式 */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -334,8 +306,5 @@ a:hover {
     .post-cover {
         width: 100%;
         height: 180px;
-    }
-    .nav-links {
-        gap: 15px;
     }
 }

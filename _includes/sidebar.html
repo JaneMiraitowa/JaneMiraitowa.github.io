@@ -19,43 +19,65 @@
 <div class="widget countdown-widget">
     <h4 class="widget-title">人生倒计时</h4>
     <div class="countdown-item">
-        <p>今日已过去 <span id="today-percent">81%</span></p >
+        <p>今日已过去 <span id="today-percent">0%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill today" style="width: 81%;"></div>
+            <div class="progress-fill today" style="width: 0%;"></div>
         </div>
     </div>
     <div class="countdown-item">
-        <p>这周已过去 <span id="week-percent">14%</span></p >
+        <p>这周已过去 <span id="week-percent">0%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill week" style="width: 14%;"></div>
+            <div class="progress-fill week" style="width: 0%;"></div>
         </div>
     </div>
     <div class="countdown-item">
-        <p>本月已过去 <span id="month-percent">43%</span></p >
+        <p>本月已过去 <span id="month-percent">0%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill month" style="width: 43%;"></div>
+            <div class="progress-fill month" style="width: 0%;"></div>
         </div>
     </div>
     <div class="countdown-item">
-        <p>今年已过去 <span id="year-percent">33%</span></p >
+        <p>今年已过去 <span id="year-percent">0%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill year" style="width: 33%;"></div>
+            <div class="progress-fill year" style="width: 0%;"></div>
         </div>
     </div>
 </div>
 
-<!-- 最新文章 -->
-<div class="widget recent-posts">
-    <h4 class="widget-title">最新文章</h4>
-    <ul>
-        {% for post in site.posts limit:5 %}
-        <li>
-            <a href=" ">
-                <i class="fa-solid fa-file-lines"></i>
-                {{ post.title }}
-            </a >
-            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+<!-- 倒计时JS -->
+<script>
+function updateProgress() {
+    const now = new Date();
+    // 今日
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const todayEnd = new Date(todayStart.getTime() + 24 * 60 * 60 * 1000);
+    const todayPercent = ((now - todayStart) / (todayEnd - todayStart)) * 100;
+    // 本周
+    const weekStart = new Date(todayStart);
+    weekStart.setDate(todayStart.getDate() - todayStart.getDay());
+    const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const weekPercent = ((now - weekStart) / (weekEnd - weekStart)) * 100;
+    // 本月
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const monthPercent = ((now - monthStart) / (monthEnd - monthStart)) * 100;
+    // 今年
+    const yearStart = new Date(now.getFullYear(), 0, 1);
+    const yearEnd = new Date(now.getFullYear() + 1, 0, 1);
+    const yearPercent = ((now - yearStart) / (yearEnd - yearStart)) * 100;
+
+    // 更新进度条
+    document.querySelector('.progress-fill.today').style.width = `${todayPercent.toFixed(0)}%`;
+    document.querySelector('.progress-fill.week').style.width = `${weekPercent.toFixed(0)}%`;
+    document.querySelector('.progress-fill.month').style.width = `${monthPercent.toFixed(0)}%`;
+    document.querySelector('.progress-fill.year').style.width = `${yearPercent.toFixed(0)}%`;
+
+    // 更新百分比
+    document.getElementById('today-percent').textContent = `${todayPercent.toFixed(0)}%`;
+    document.getElementById('week-percent').textContent = `${weekPercent.toFixed(0)}%`;
+    document.getElementById('month-percent').textContent = `${monthPercent.toFixed(0)}%`;
+    document.getElementById('year-percent').textContent = `${yearPercent.toFixed(0)}%`;
+}
+updateProgress();
+setInterval(updateProgress, 1000);
+</script>

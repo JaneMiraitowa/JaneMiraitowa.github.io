@@ -7,9 +7,9 @@
     <meta name="description" content="{{ site.description }}">
     <!-- 图标库 -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 核心样式 -->
+    <!-- 核心样式：路径必须是 /assets/css/style.css，不能错！ -->
     <link rel="stylesheet" href="/assets/css/style.css">
-    <!-- 不蒜子访问统计 -->
+    <!-- 不蒜子统计 -->
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body>
@@ -48,13 +48,15 @@
         <div class="footer-content">
             <p>© {{ site.time | date: "%Y" }} {{ site.title }} | Powered by Jekyll & GitHub Pages</p >
             <p class="stats">
-                <span id="busuanzi_value_site_pv"></span> 次访问 | 
-                <span id="busuanzi_value_site_uv"></span> 位访客
+                总访问量：<span id="busuanzi_value_site_pv"></span> 次 | 
+                访客数：<span id="busuanzi_value_site_uv"></span> 位
             </p >
         </div>
     </footer>
 
     <!-- 倒计时JS -->
     <script src="/assets/js/countdown.js"></script>
+    <!-- 搜索JS -->
+    <script src="/assets/js/search.js"></script>
 </body>
 </html>
