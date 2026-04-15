@@ -1,6 +1,6 @@
 title: Jane的个人博客
-subtitle: 记录学习与生活
-description: 分享网络安全、技术学习、生活日常
+subtitle: 网络安全 · 学习 · 生活
+description: 专注网络安全学习，记录成长与日常
 author: Jane
 baseurl: ""
 url: "https://JaneMiraitowa.github.io"
@@ -12,7 +12,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
 
-paginate: 5
+paginate: 6
 paginate_path: "/page/:num/"
 
 navigation:
@@ -22,5 +22,18 @@ navigation:
     url: /category/tech/
   - name: 生活日常
     url: /category/life/
+  - name: 我的动态
+    url: /notes/
   - name: 关于我
     url: /about/
+
+# 评论系统 Gitalk
+gitalk:
+  enable: true
+  clientID: ''
+  clientSecret: ''
+  repo: JaneMiraitowa.github.io
+  owner: JaneMiraitowa
+  admin:
+    - JaneMiraitowa
+  distractionFreeMode: true
