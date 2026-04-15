@@ -1,7 +1,6 @@
 ---
 layout: default
 title: 生活日常
-category: 生活日常
 ---
 
 # 生活日常
@@ -10,9 +9,9 @@ category: 生活日常
 <ul class="post-list">
   {% for post in site.posts %}
     {% if post.categories contains "生活日常" %}
-      <li>
+      <li class="post-item">
         <h2>
-          <a class="post-link" href=" ">
+          <a class="post-title" href=" ">
             {{ post.title | escape }}
           </a >
         </h2>

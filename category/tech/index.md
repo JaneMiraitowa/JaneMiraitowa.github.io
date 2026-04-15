@@ -1,7 +1,6 @@
 ---
 layout: default
 title: 技术笔记
-category: 技术笔记
 ---
 
 # 技术笔记
@@ -10,9 +9,9 @@ category: 技术笔记
 <ul class="post-list">
   {% for post in site.posts %}
     {% if post.categories contains "tech" %}
-      <li>
+      <li class="post-item">
         <h2>
-          <a class="post-link" href=" ">
+          <a class="post-title" href=" ">
             {{ post.title | escape }}
           </a >
         </h2>

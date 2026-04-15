@@ -28,6 +28,7 @@ main{margin-top:24px}
 .post-list{list-style:none}
 .post-item{padding:16px 0;border-bottom:1px solid #f0f0f0}
 .post-title{font-size:19px;font-weight:600;color:#165DFF;text-decoration:none}
+.post-title:hover{text-decoration:underline}
 .post-meta{font-size:13px;color:#888;margin:6px 0}
 .post-cate{display:inline-block;background:#e8f3ff;color:#165DFF;padding:2px 8px;border-radius:8px;font-size:12px;margin-left:8px}
 
@@ -47,11 +48,11 @@ footer{text-align:center;padding:30px 20px;color:#888;font-size:14px}
   <div class="container nav-box">
     <div class="logo-area">
       < img src="https://q1.qlogo.cn/g?b=qq&nk=123456&s=640" class="avatar" alt="头像">
-      <a class="site-title" href=" '/' }}">{{ site.title }}</a >
+      <a class="site-title" href=" '/' | relative_url }}">{{ site.title }}</a >
     </div>
     <ul class="nav-links">
       {% for item in site.navigation %}
-      <li><a href="{{ item.url }}">{{ item.name }}</a ></li>
+      <li><a href="{{ item.url | relative_url }}">{{ item.name }}</a ></li>
       {% endfor %}
     </ul>
   </div>
