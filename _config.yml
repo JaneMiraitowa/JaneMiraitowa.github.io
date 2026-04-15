@@ -1,39 +1,21 @@
 title: Jane的个人博客
-subtitle: 网络安全 · 学习 · 生活
-description: 专注网络安全学习，记录成长与日常
-author: Jane
+email: your-email@example.com
+description: Jane的个人技术与生活博客
 baseurl: ""
-url: "https://JaneMiraitowa.github.io"
+url: "https://janemiraitowa.github.io"
+github_username: JaneMiraitowa
 
-theme: minima
-
+# Build settings
+theme: null
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-paginate
+  - jekyll-sitemap
 
-paginate: 6
-paginate_path: "/page/:num/"
+# 文章摘要
+excerpt_separator: <!--more-->
 
-navigation:
-  - name: 首页
-    url: /
-  - name: 技术笔记
-    url: /category/tech/
-  - name: 生活日常
-    url: /category/life/
-  - name: 我的动态
-    url: /notes/
-  - name: 关于我
-    url: /about/
-
-# 评论系统 Gitalk
-gitalk:
-  enable: true
-  clientID: ''
-  clientSecret: ''
-  repo: JaneMiraitowa.github.io
-  owner: JaneMiraitowa
-  admin:
-    - JaneMiraitowa
-  distractionFreeMode: true
+# 分类
+collections:
+  category:
+    output: true
+    permalink: /category/:name/
