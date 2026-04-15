@@ -1,31 +1,60 @@
----
-layout: default
-title: Jane的个人博客
----
-
-<!-- 文章标签栏 -->
-<div class="post-tabs">
-    <span class="tab active">最新文章</span>
-    <span class="tab">热门文章</span>
-    <span class="tab">评论最多</span>
-    <span class="tab">点赞最多</span>
-</div>
-
-<!-- 文章卡片 -->
-{% for post in site.posts %}
-<div class="post-card">
-    < img src="{{ post.cover | default: 'https://picsum.photos/id/64/200/120' }}" alt="文章封面" class="post-cover">
-    <div class="post-info">
-        <h2 class="post-title"><a href=" ">{{ post.title }}</a ></h2>
-        <div class="post-meta">
-            {{ post.date | date: "%Y年%m月%d日" }} / {{ post.reading_time | default: 6 }}阅读 / {{ post.comments | default: 5 }}评论 / {{ post.likes | default: 1 }}点赞
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <!-- 图标库 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 核心样式 -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- 不蒜子访问统计 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-code"></i>
+                <span>Jane的个人博客</span>
+            </div>
+            <nav class="nav-links">
+                <a href=" ">首页</a >
+                <a href="/category/生活日常/">生活日常</a >
+                <a href="/category/技术笔记/">技术笔记</a >
+                <a href="/about.html">关于我</a >
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="请输入关键字">
+                <button class="search-btn">Search</button>
+            </div>
         </div>
-        <p class="post-excerpt">
-            {{ post.excerpt | strip_html | truncate: 160 }}
-        </p >
-        <span class="post-category">{{ post.categories | first | default: "生活感悟" }}</span>
-    </div>
-</div>
-{% endfor %}
+    </header>
 
-<button class="more-btn">查看更多</button>
+    <!-- 主体双栏容器 -->
+    <div class="container">
+        <main class="main-content">
+            {{ content }}
+        </main>
+        <aside class="sidebar">
+            {% include sidebar.html %}
+        </aside>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© {{ site.time | date: "%Y" }} {{ site.title }} | Powered by Jekyll & GitHub Pages</p >
+            <p class="stats">
+                <span id="busuanzi_value_site_pv"></span> 次访问 | 
+                <span id="busuanzi_value_site_uv"></span> 位访客
+            </p >
+        </div>
+    </footer>
+
+    <!-- 倒计时JS -->
+    <script src="/assets/js/countdown.js"></script>
+</body>
+</html>

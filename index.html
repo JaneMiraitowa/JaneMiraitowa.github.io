@@ -1,54 +1,32 @@
 ---
 layout: default
-title: 首页
+title: Jane的个人博客
 ---
 
-<div class="home">
-  <h1 class="page-heading">最新文章</h1>
-  <ul class="post-list">
-    {% for post in paginator.posts %}
-      <li>
-        <h2>
-          <a class="post-link" href=" ">
-            {{ post.title | escape }}
-          </a >
-        </h2>
-        <span class="post-meta">{{ post.date | date: "%Y年%m月%d日" }}</span>
-        {% if post.categories.size > 0 %}
-          <span class="post-categories">
-            {% for category in post.categories %}
-              <a href="/category/{{ category | slugify }}/">{{ category }}</a >
-            {% endfor %}
-          </span>
-        {% endif %}
-        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p >
-      </li>
-    {% endfor %}
-  </ul>
-
-  {% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; 上一页</a >
-    {% else %}
-      <span>&laquo; 上一页</span>
-    {% endif %}
-
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <em>{{ page }}</em>
-      {% elsif page == 1 %}
-        <a href="{{ '/' | relative_url }}">{{ page }}</a >
-      {% else %}
-        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a >
-      {% endif %}
-    {% endfor %}
-
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}">下一页 &raquo;</a >
-    {% else %}
-      <span>下一页 &raquo;</span>
-    {% endif %}
-  </div>
-  {% endif %}
+<div class="post-tabs">
+    <span class="tab active">最新文章</span>
+    <span class="tab">热门文章</span>
+    <span class="tab">评论最多</span>
+    <span class="tab">点赞最多</span>
 </div>
+
+{% for post in site.posts %}
+<div class="post-card">
+    < img src="{{ post.cover | default: 'https://picsum.photos/id/64/200/120' }}" alt="文章封面" class="post-cover">
+    <div class="post-info">
+        <h2 class="post-title"><a href=" ">{{ post.title }}</a ></h2>
+        <div class="post-meta">
+            <span><i class="fa-solid fa-calendar-days"></i> {{ post.date | date: "%Y年%m月%d日" }}</span>
+            <span><i class="fa-solid fa-eye"></i> {{ post.reading_time | default: 6 }}阅读</span>
+            <span><i class="fa-solid fa-comment"></i> {{ post.comments | default: 5 }}评论</span>
+            <span><i class="fa-solid fa-heart"></i> {{ post.likes | default: 1 }}点赞</span>
+        </div>
+        <p class="post-excerpt">
+            {{ post.excerpt | strip_html | truncate: 160 }}
+        </p >
+        <span class="post-category">{{ post.categories | first | default: "生活日常" }}</span>
+    </div>
+</div>
+{% endfor %}
+
+<button class="more-btn">查看更多</button>

@@ -21,45 +21,41 @@
     <div class="countdown-item">
         <p>今日已过去 <span id="today-percent">81%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill today" style="width: 81%; background-color: #4fc3f7;"></div>
+            <div class="progress-fill today" style="width: 81%;"></div>
         </div>
     </div>
     <div class="countdown-item">
         <p>这周已过去 <span id="week-percent">14%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill week" style="width: 14%; background-color: #fdd835;"></div>
+            <div class="progress-fill week" style="width: 14%;"></div>
         </div>
     </div>
     <div class="countdown-item">
         <p>本月已过去 <span id="month-percent">43%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill month" style="width: 43%; background-color: #f44336;"></div>
+            <div class="progress-fill month" style="width: 43%;"></div>
         </div>
     </div>
     <div class="countdown-item">
         <p>今年已过去 <span id="year-percent">33%</span></p >
         <div class="progress-bar">
-            <div class="progress-fill year" style="width: 33%; background-color: #8bc34a;"></div>
+            <div class="progress-fill year" style="width: 33%;"></div>
         </div>
     </div>
 </div>
 
-<!-- 最新回复 -->
-<div class="widget reply-widget">
-    <h4 class="widget-title">最新回复</h4>
-    <div class="reply-item">
-        < img src="https://picsum.photos/id/1/40/40" alt="头像" class="reply-avatar">
-        <div class="reply-content">
-            <p class="reply-author">用户1</p >
-            <span class="reply-time">2026-04-13</span>
-        </div>
-    </div>
-    <div class="reply-item">
-        < img src="https://picsum.photos/id/2/40/40" alt="头像" class="reply-avatar">
-        <div class="reply-content">
-            <p class="reply-author">用户2</p >
-            <span class="reply-time">2026-04-13</span>
-            <p class="reply-text">微笑 再再再😈 再再 再再再😈</p >
-        </div>
-    </div>
+<!-- 最新文章 -->
+<div class="widget recent-posts">
+    <h4 class="widget-title">最新文章</h4>
+    <ul>
+        {% for post in site.posts limit:5 %}
+        <li>
+            <a href=" ">
+                <i class="fa-solid fa-file-lines"></i>
+                {{ post.title }}
+            </a >
+            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
