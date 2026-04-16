@@ -356,3 +356,220 @@ a, button, .post-card, .nav-item, .btn {
 pre, code {
   display: none !important;
 }
+
+
+/* 分类页 & 首页文章列表样式 */
+.posts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.post-cover img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.post-info {
+  padding: 16px 20px;
+}
+
+.post-title a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: #3498db;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin: 8px 0;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.category-title, .welcome-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.category-desc, .welcome-desc {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+/* 关于我页面样式 */
+.about-page {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-name {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 16px 0 8px;
+}
+
+.about-bio {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+.about-section {
+  text-align: left;
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.about-section h3 {
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-section li {
+  margin: 8px 0;
+  color: #555;
+}
+
+.about-section a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+
+/* 文章详情页样式 */
+.post-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+  color: #2c3e50;
+  margin: 24px 0 12px;
+}
+
+.post-content p {
+  margin: 16px 0;
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.post-content code {
+  background: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.post-content pre {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+
+/* 暗黑模式按钮样式 */
+.dark-mode-btn {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 20px;
+  color: inherit;
+  padding: 0;
+}
+
+/* 全局暗黑模式基础样式 */
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+/* 暗黑模式下：头部、侧边栏、页脚背景 */
+body.dark-mode .header, 
+body.dark-mode .sidebar, 
+body.dark-mode .footer {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
+/* 暗黑模式下：文章卡片、分类页容器 */
+body.dark-mode .post-card,
+body.dark-mode .category-page,
+body.dark-mode .home-page {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+/* 暗黑模式下：链接颜色 */
+body.dark-mode a {
+  color: #87ceeb;
+}
+
+/* 暗黑模式下：标题颜色 */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #ffffff;
+}
+
+/* 暗黑模式下：正文文字颜色 */
+body.dark-mode p,
+body.dark-mode span {
+  color: #e0e0e0;
+}
