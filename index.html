@@ -3,29 +3,35 @@ layout: default
 title: 首页
 ---
 
-<div class="home-page">
-  <h2 class="welcome-title">欢迎来到Jane的个人博客✨</h2>
-  <p class="welcome-desc">分享技术、记录生活，持续输出干货与日常~</p >
+<div class="hero">
+  <h1>欢迎来到Jane的个人博客✨</h1>
+  <p>分享技术、记录生活，持续输出干货与日常~</p >
+</div>
 
-  <div class="posts-list">
-    {% for post in site.posts %}
-      <div class="post-card">
-        <div class="post-cover">
-          {% if post.cover %}
-            < img src="{{ post.cover }}" alt="{{ post.title }}">
-          {% else %}
-            < img src="https://picsum.photos/id/64/200/120" alt="文章封面">
+<div class="posts-list">
+  {% for post in site.posts limit: 5 %}
+    <div class="post-card">
+      <!-- 封面图片渲染 -->
+      <div class="post-cover">
+        {% if post.cover %}
+          < img src="{{ post.cover | relative_url }}" alt="{{ post.title }}">
+        {% else %}
+          < img src="/assets/images/cover1.jpg" alt="文章封面">
+        {% endif %}
+      </div>
+      <!-- 文章信息 -->
+      <div class="post-info">
+        <h3 class="post-title">
+          <a href=" ">{{ post.title }}</a >
+        </h3>
+        <div class="post-meta">
+          <span>{{ post.date | date: "%Y年%m月%d日" }}</span>
+          {% if post.categories %}
+            <span>· {{ post.categories | first }}</span>
           {% endif %}
         </div>
-        <div class="post-info">
-          <h3 class="post-title"><a href=" ">{{ post.title }}</a ></h3>
-          <div class="post-meta">
-            <span>{{ post.date | date: "%Y年%m月%d日" }}</span>
-            <span>· {{ post.categories }}</span>
-          </div>
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p >
-        </div>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</p >
       </div>
-    {% endfor %}
-  </div>
+    </div>
+  {% endfor %}
 </div>

@@ -28,7 +28,7 @@ title: 生活日常
               <span>· {{ post.categories | first }}</span>
             {% endif %}
           </div>
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</p >
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p >
         </div>
       </div>
       {% endif %}
