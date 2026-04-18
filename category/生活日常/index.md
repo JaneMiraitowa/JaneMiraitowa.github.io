@@ -13,9 +13,9 @@ title: 生活日常
       <div class="post-card">
         <div class="post-cover">
           {% if post.cover %}
-            < img src="{{ post.cover | relative_url }}" alt="{{ post.title }}">
+            <img src="{{ post.cover | relative_url }}" alt="{{ post.title }}">
           {% else %}
-            < img src="/assets/images/cover1.jpg" alt="文章封面">
+            <img src="/assets/images/cover1.jpg" alt="文章封面">
           {% endif %}
         </div>
         <div class="post-info">
