@@ -14,7 +14,7 @@ title: 生活日常
           {% if post.cover %}
             < img src="{{ post.cover }}" alt="{{ post.title }}">
           {% else %}
-            < img src="https://picsum.photos/id/64/200/120" alt="文章封面">
+            < img src="/assets/images/cover1.jpg" alt="文章封面">
           {% endif %}
         </div>
         <div class="post-info">
