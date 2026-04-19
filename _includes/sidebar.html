@@ -78,3 +78,35 @@ setInterval(updateProgress, 1000);
 </script>
 
 {% include latest-comments.html %}
+
+<script>
+// 监听深色模式切换，同步更新Giscus主题
+document.addEventListener('DOMContentLoaded', () => {
+  // 适配大部分Jekyll主题的深色模式切换逻辑
+  const updateGiscusTheme = () => {
+    // 检测当前是否为深色模式（适配常见主题的类名）
+    const isDark = document.documentElement.classList.contains('dark') || 
+                   document.body.classList.contains('dark-theme') ||
+                   window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const theme = isDark ? 'dark' : 'light';
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (iframe) {
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: theme } } },
+        'https://giscus.app'
+      );
+    }
+  };
+
+  // 页面加载时执行一次
+  updateGiscusTheme();
+
+  // 监听深色模式切换按钮的点击事件
+  const toggleBtn = document.querySelector('[aria-label="深色模式切换"], .dark-mode-toggle, #dark-mode-toggle');
+  toggleBtn?.addEventListener('click', () => {
+    // 给主题切换一点延迟，确保类名更新后再执行
+    setTimeout(updateGiscusTheme, 100);
+  });
+});
+</script>
