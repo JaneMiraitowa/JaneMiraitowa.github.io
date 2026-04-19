@@ -1,0 +1,71 @@
+<div class="latest-comments">
+  <h3>最新回复</h3>
+  <ul id="giscus-comments-list">
+    <li>加载中...</li>
+  </ul>
+</div>
+
+<script>
+  const repo = "JaneMiraitowa/JaneMiraitowa.github.io"; // 换成你的仓库
+  const repoId = "R_kgDOSCh2KA"; // 换成你的仓库ID，后面教你怎么获取
+  const categoryId = "DIC_kwDOSCh2KM4C66Te"; // 换成你的Announcements分类ID
+
+  async function fetchComments() {
+    const apiUrl = `https://giscus.app/api/widgets/comments?repo=${repo}&repoId=${repoId}&category=Announcements&categoryId=${categoryId}&limit=5`;
+    try {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      const listEl = document.getElementById("giscus-comments-list");
+      listEl.innerHTML = "";
+
+      data.forEach(comment => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <img src="${comment.avatarUrl}" alt="${comment.author}" width="32" height="32">
+          <div>
+            <span class="comment-author">${comment.author}</span>
+            <p class="comment-content">${comment.body.substring(0, 30)}...</p>
+            <small class="comment-time">${new Date(comment.createdAt).toLocaleDateString()}</small>
+          </div>
+        `;
+        listEl.appendChild(li);
+      });
+    } catch (err) {
+      document.getElementById("giscus-comments-list").innerHTML = "<li>加载评论失败</li>";
+    }
+  }
+
+  fetchComments();
+</script>
+
+<style>
+.latest-comments {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+#giscus-comments-list {
+  list-style: none;
+  padding: 0;
+}
+#giscus-comments-list li {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: flex-start;
+}
+.comment-author {
+  font-weight: bold;
+  font-size: 14px;
+}
+.comment-content {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #666;
+}
+.comment-time {
+  font-size: 11px;
+  color: #999;
+}
+</style>
