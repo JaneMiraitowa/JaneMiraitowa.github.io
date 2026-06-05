@@ -1,20 +1,81 @@
-<div class="search-widget">
-    <input type="text" id="search-input" placeholder="🔍 搜索文章...">
-    <ul id="results-container"></ul>
+<!-- 纯 JavaScript 搜索框（不依赖外部库） -->
+<div class="search-widget" style="margin: 20px 0;">
+    <input type="text" id="search-input" placeholder="🔍 搜索文章..." style="width: 100%; padding: 8px; border-radius: 20px; border: 1px solid #ccc;">
+    <ul id="results-container" style="list-style: none; padding-left: 0; margin-top: 10px;"></ul>
 </div>
-<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 <script>
-    window.addEventListener('DOMContentLoaded', function() {
-        var sjs = SimpleJekyllSearch({
-            searchInput: document.getElementById('search-input'),
-            resultsContainer: document.getElementById('results-container'),
-            json: '/search.json',
-            searchResultTemplate: '<li><a href="{url}">{title}</a></li>',  // ✅ 正确写法
-            noResultsText: '😢 没有找到相关文章',
-            limit: 10,
-            fuzzy: true
-        });
-    });
+    (function() {
+        // 获取搜索框和结果容器元素
+        var searchInput = document.getElementById('search-input');
+        var resultsContainer = document.getElementById('results-container');
+        if (!searchInput || !resultsContainer) return;
+
+        // 存储所有文章数据
+        var postsData = [];
+
+        // 加载 search.json
+        fetch('/search.json')
+            .then(function(response) {
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                return response.json();
+            })
+            .then(function(data) {
+                postsData = data;
+                console.log('搜索数据加载成功，共', postsData.length, '篇文章');
+            })
+            .catch(function(error) {
+                console.error('加载 search.json 失败：', error);
+                resultsContainer.innerHTML = '<li>⚠️ 搜索功能暂时不可用</li>';
+            });
+
+        // 实时搜索
+        function performSearch() {
+            var keyword = searchInput.value.trim().toLowerCase();
+            if (!keyword) {
+                resultsContainer.innerHTML = '';
+                return;
+            }
+
+            // 过滤文章（标题或内容包含关键字）
+            var filtered = postsData.filter(function(post) {
+                var titleMatch = post.title && post.title.toLowerCase().includes(keyword);
+                var contentMatch = post.content && post.content.toLowerCase().includes(keyword);
+                return titleMatch || contentMatch;
+            });
+
+            // 渲染结果
+            if (filtered.length === 0) {
+                resultsContainer.innerHTML = '<li>😢 没有找到相关文章</li>';
+                return;
+            }
+
+            var html = '';
+            for (var i = 0; i < filtered.length; i++) {
+                var post = filtered[i];
+                html += '<li style="margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #eee;">';
+                html += '<a href="' + post.url + '" style="text-decoration: none; color: #0366d6;">' + escapeHtml(post.title) + '</a>';
+                if (post.date) {
+                    html += '<div style="font-size: 12px; color: #666;">' + post.date + '</div>';
+                }
+                html += '</li>';
+            }
+            resultsContainer.innerHTML = html;
+        }
+
+        // 简单的防 XSS 辅助函数
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+
+        // 监听输入事件
+        searchInput.addEventListener('input', performSearch);
+    })();
 </script>
 
 
