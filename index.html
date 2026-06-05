@@ -5,7 +5,7 @@ title: 首页
 
 <div class="hero">
   <h1>欢迎来到Jane的个人博客✨</h1>
-  <p>分享技术、记录生活，持续输出干货与日常~</p >
+  <p>分享技术、记录生活，持续输出干货与日常~</p>
 </div>
 
 <div class="posts-list">
@@ -22,7 +22,7 @@ title: 首页
       <!-- 文章信息 -->
       <div class="post-info">
         <h3 class="post-title">
-          <a href=" ">{{ post.title }}</a >
+          <a href="{{ post.url }}">{{ post.title }}</a>
         </h3>
         <div class="post-meta">
           <span>{{ post.date | date: "%Y年%m月%d日" }}</span>
@@ -30,7 +30,7 @@ title: 首页
             <span>· {{ post.categories | first }}</span>
           {% endif %}
         </div>
-        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</p >
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</p>
       </div>
     </div>
   {% endfor %}
