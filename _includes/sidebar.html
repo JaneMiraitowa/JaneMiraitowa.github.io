@@ -147,26 +147,24 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 </style>
 
-<!-- 搜索框开始 -->
-<div class="search-widget">
-    <input type="text" id="search-input" placeholder="🔍 搜索文章...">
-    <ul id="results-container"></ul>
-</div>
 
+<!-- 优化后的搜索框 -->
+<div class="search-widget" style="margin: 20px 0; padding: 0 10px;">
+    <input type="text" id="search-input" placeholder="🔍 搜索文章..." 
+           style="width: 100%; padding: 10px; border-radius: 20px; border: 1px solid #ddd; background: #f9f9f9;">
+    <ul id="results-container" style="list-style: none; padding-left: 0; margin-top: 10px;"></ul>
+</div>
 <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', function() {
-        if (typeof SimpleJekyllSearch !== 'undefined') {
-            SimpleJekyllSearch({
-                searchInput: document.getElementById('search-input'),
-                resultsContainer: document.getElementById('results-container'),
-                json: '{{ site.baseurl }}/search.json',
-                searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-                noResultsText: '😢 没有找到相关文章',
-                limit: 10,
-                fuzzy: false
-            });
-        }
+        var sjs = SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<li style="border-bottom:1px solid #eee; margin-bottom:8px; padding-bottom:6px;"><a href="{url}" style="text-decoration:none; color:#0366d6;">{title}</a><div style="font-size:12px; color:#666;">{date} · {category}</div></li>',
+            noResultsText: '😢 没有找到相关文章',
+            limit: 8,
+            fuzzy: true
+        });
     });
 </script>
-<!-- 搜索框结束 -->
