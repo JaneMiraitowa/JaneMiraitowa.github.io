@@ -146,3 +146,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 }
 </style>
+
+<!-- 搜索框开始 -->
+<div class="search-widget">
+    <input type="text" id="search-input" placeholder="🔍 搜索文章...">
+    <ul id="results-container"></ul>
+</div>
+
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        if (typeof SimpleJekyllSearch !== 'undefined') {
+            SimpleJekyllSearch({
+                searchInput: document.getElementById('search-input'),
+                resultsContainer: document.getElementById('results-container'),
+                json: '{{ site.baseurl }}/search.json',
+                searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+                noResultsText: '😢 没有找到相关文章',
+                limit: 10,
+                fuzzy: false
+            });
+        }
+    });
+</script>
+<!-- 搜索框结束 -->
