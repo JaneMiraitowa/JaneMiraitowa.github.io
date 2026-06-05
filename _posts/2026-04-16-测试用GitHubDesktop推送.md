@@ -3,7 +3,7 @@ layout: post
 title: 测试用GitHub Desktop推送
 date: 2026-04-16
 categories: 技术笔记
-permalink: /2026/04/16/test-GitHub Desktop/
+permalink: /2026/04/16/test-github-desktop/
 cover: /assets/images/testcover.jpg  # 封面图写在这里
 ---
 
