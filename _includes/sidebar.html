@@ -1,4 +1,4 @@
-<!-- 纯 JavaScript 搜索框（不依赖外部库） -->
+<!-- 纯 JavaScript 搜索框（不依赖外部库） - 只搜索标题 -->
 <div class="search-widget" style="margin: 20px 0;">
     <input type="text" id="search-input" placeholder="🔍 搜索文章..." style="width: 100%; padding: 8px; border-radius: 20px; border: 1px solid #ccc;">
     <ul id="results-container" style="list-style: none; padding-left: 0; margin-top: 10px;"></ul>
@@ -36,11 +36,9 @@
                 return;
             }
 
-            // 过滤文章（标题或内容包含关键字）
+            // 过滤文章：只匹配标题（不匹配正文）
             var filtered = postsData.filter(function(post) {
-                var titleMatch = post.title && post.title.toLowerCase().includes(keyword);
-                var contentMatch = post.content && post.content.toLowerCase().includes(keyword);
-                return titleMatch || contentMatch;
+                return post.title && post.title.toLowerCase().includes(keyword);
             });
 
             // 渲染结果
