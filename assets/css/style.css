@@ -4,18 +4,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/* ======================================================
-   基础样式（默认深色模式，浅色模式用 body:not(.dark-mode) 覆盖）
-   ====================================================== */
 body {
     background-color: #1e1e2e;
     color: #cdd6f4;
     font-family: "Microsoft Yahei", -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.7;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 a {
     color: #89b4fa;
     text-decoration: none;
@@ -25,24 +19,7 @@ a:hover {
     color: #b4befe;
 }
 
-/* ======================================================
-   浅色模式（当 body 没有 .dark-mode 类时）
-   ====================================================== */
-body:not(.dark-mode) {
-    background-color: #f5f7fa;
-    color: #1a1a2e;
-}
-
-body:not(.dark-mode) a {
-    color: #2563eb;
-}
-body:not(.dark-mode) a:hover {
-    color: #1d4ed8;
-}
-
-/* ======================================================
-   导航栏
-   ====================================================== */
+/* 导航栏 */
 .header {
     background-color: #181825;
     padding: 15px 20px;
@@ -50,24 +27,14 @@ body:not(.dark-mode) a:hover {
     position: sticky;
     top: 0;
     z-index: 100;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
-body:not(.dark-mode) .header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-}
-
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
 }
-
 .logo {
     display: flex;
     align-items: center;
@@ -75,13 +42,7 @@ body:not(.dark-mode) .header {
     font-size: 1.4rem;
     font-weight: bold;
     color: #f5e0dc;
-    transition: color 0.3s ease;
 }
-
-body:not(.dark-mode) .logo {
-    color: #1a1a2e;
-}
-
 .logo i {
     color: #89b4fa;
     animation: rotate 4s linear infinite;
@@ -90,17 +51,14 @@ body:not(.dark-mode) .logo {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-
 .nav-links {
     display: flex;
     gap: 25px;
-    flex-wrap: wrap;
 }
 .nav-links a {
     color: #cdd6f4;
     font-size: 1rem;
     position: relative;
-    transition: color 0.3s ease;
 }
 .nav-links a::after {
     content: '';
@@ -115,14 +73,6 @@ body:not(.dark-mode) .logo {
 .nav-links a:hover::after {
     width: 100%;
 }
-
-body:not(.dark-mode) .nav-links a {
-    color: #2d3748;
-}
-body:not(.dark-mode) .nav-links a::after {
-    background: #2563eb;
-}
-
 .search-box {
     display: flex;
     align-items: center;
@@ -135,15 +85,7 @@ body:not(.dark-mode) .nav-links a::after {
     background-color: #313244;
     color: #cdd6f4;
     outline: none;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
-
-body:not(.dark-mode) .search-box input {
-    background-color: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    color: #1a1a2e;
-}
-
 .search-btn {
     padding: 6px 16px;
     background: linear-gradient(135deg, #89b4fa, #b4befe);
@@ -152,15 +94,9 @@ body:not(.dark-mode) .search-box input {
     color: #1e1e2e;
     font-weight: bold;
     cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-.search-btn:hover {
-    opacity: 0.85;
 }
 
-/* ======================================================
-   主体容器
-   ====================================================== */
+/* 主体容器 */
 .container {
     max-width: 1200px;
     margin: 30px auto;
@@ -179,9 +115,7 @@ body:not(.dark-mode) .search-box input {
     gap: 25px;
 }
 
-/* ======================================================
-   文章标签栏
-   ====================================================== */
+/* 文章标签栏 */
 .post-tabs {
     display: flex;
     gap: 25px;
@@ -189,32 +123,17 @@ body:not(.dark-mode) .search-box input {
     border-bottom: 1px solid #313244;
     padding-bottom: 10px;
 }
-body:not(.dark-mode) .post-tabs {
-    border-bottom-color: #e2e8f0;
-}
-
 .tab {
     color: #a6adc8;
     cursor: pointer;
     font-size: 1rem;
-    transition: color 0.3s ease;
 }
 .tab.active {
     color: #89b4fa;
     border-bottom: 2px solid #89b4fa;
 }
 
-body:not(.dark-mode) .tab {
-    color: #64748b;
-}
-body:not(.dark-mode) .tab.active {
-    color: #2563eb;
-    border-bottom-color: #2563eb;
-}
-
-/* ======================================================
-   文章卡片
-   ====================================================== */
+/* 文章卡片 */
 .post-card {
     background: linear-gradient(145deg, #313244, #181825);
     border-radius: 12px;
@@ -231,33 +150,12 @@ body:not(.dark-mode) .tab.active {
     box-shadow: 0 12px 24px rgba(0,0,0,0.3);
     border-color: #89b4fa;
 }
-
-body:not(.dark-mode) .post-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-body:not(.dark-mode) .post-card:hover {
-    border-color: #2563eb;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-}
-
 .post-cover {
     width: 200px;
     height: 130px;
     object-fit: cover;
     border-radius: 8px;
 }
-.post-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
 .post-info {
     flex: 1;
 }
@@ -265,44 +163,19 @@ body:not(.dark-mode) .post-card:hover {
     font-size: 1.4rem;
     margin-bottom: 8px;
     color: #f5e0dc;
-    transition: color 0.3s ease;
 }
-body:not(.dark-mode) .post-title {
-    color: #1a1a2e;
-}
-
-.post-title a {
-    color: inherit;
-    text-decoration: none;
-}
-.post-title a:hover {
-    color: #89b4fa;
-}
-body:not(.dark-mode) .post-title a:hover {
-    color: #2563eb;
-}
-
 .post-meta {
     font-size: 0.9rem;
     color: #a6adc8;
     margin-bottom: 10px;
     display: flex;
     gap: 15px;
-    flex-wrap: wrap;
 }
-body:not(.dark-mode) .post-meta {
-    color: #64748b;
-}
-
 .post-excerpt {
     font-size: 1rem;
     color: #cdd6f4;
     margin-bottom: 12px;
 }
-body:not(.dark-mode) .post-excerpt {
-    color: #334155;
-}
-
 .post-category {
     font-size: 0.85rem;
     color: #89b4fa;
@@ -311,10 +184,6 @@ body:not(.dark-mode) .post-excerpt {
     border-radius: 12px;
     display: inline-block;
 }
-body:not(.dark-mode) .post-category {
-    background-color: rgba(37, 99, 235, 0.08);
-}
-
 .more-btn {
     display: block;
     width: 120px;
@@ -325,20 +194,9 @@ body:not(.dark-mode) .post-category {
     border-radius: 20px;
     color: #cdd6f4;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-body:not(.dark-mode) .more-btn {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-    color: #1a1a2e;
-}
-.more-btn:hover {
-    opacity: 0.8;
 }
 
-/* ======================================================
-   侧边栏组件
-   ====================================================== */
+/* 侧边栏组件 */
 .widget {
     background: rgba(49, 50, 68, 0.8);
     backdrop-filter: blur(10px);
@@ -346,31 +204,16 @@ body:not(.dark-mode) .more-btn {
     padding: 20px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border: 1px solid #313244;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
-body:not(.dark-mode) .widget {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-
 .widget-title {
     font-size: 1.1rem;
     margin-bottom: 15px;
     padding-bottom: 8px;
     border-bottom: 1px solid #313244;
     color: #f5e0dc;
-    transition: color 0.3s ease, border-color 0.3s ease;
-}
-body:not(.dark-mode) .widget-title {
-    color: #1a1a2e;
-    border-bottom-color: #e2e8f0;
 }
 
-/* ======================================================
-   作者信息卡
-   ====================================================== */
+/* 作者信息卡 */
 .author-card {
     text-align: center;
 }
@@ -386,21 +229,12 @@ body:not(.dark-mode) .widget-title {
     font-size: 1.3rem;
     margin-bottom: 5px;
     color: #f5e0dc;
-    transition: color 0.3s ease;
 }
-body:not(.dark-mode) .author-name {
-    color: #1a1a2e;
-}
-
 .author-bio {
     font-size: 0.95rem;
     color: #a6adc8;
     margin-bottom: 15px;
 }
-body:not(.dark-mode) .author-bio {
-    color: #64748b;
-}
-
 .author-stats {
     display: flex;
     justify-content: space-around;
@@ -413,20 +247,12 @@ body:not(.dark-mode) .author-bio {
     font-weight: bold;
     color: #89b4fa;
 }
-body:not(.dark-mode) .stat-num {
-    color: #2563eb;
-}
 .stat-label {
     font-size: 0.85rem;
     color: #a6adc8;
 }
-body:not(.dark-mode) .stat-label {
-    color: #64748b;
-}
 
-/* ======================================================
-   倒计时进度条
-   ====================================================== */
+/* 倒计时进度条 */
 .countdown-item {
     margin-bottom: 15px;
 }
@@ -435,10 +261,6 @@ body:not(.dark-mode) .stat-label {
     color: #cdd6f4;
     margin-bottom: 5px;
 }
-body:not(.dark-mode) .countdown-item p {
-    color: #1a1a2e;
-}
-
 .progress-bar {
     width: 100%;
     height: 10px;
@@ -446,10 +268,6 @@ body:not(.dark-mode) .countdown-item p {
     border-radius: 5px;
     overflow: hidden;
 }
-body:not(.dark-mode) .progress-bar {
-    background-color: #e2e8f0;
-}
-
 .progress-fill {
     height: 100%;
     border-radius: 5px;
@@ -460,46 +278,27 @@ body:not(.dark-mode) .progress-bar {
 .progress-fill.month { background: #f38ba8; }
 .progress-fill.year { background: #a6e3a1; }
 
-body:not(.dark-mode) .progress-fill.today { background: #2563eb; }
-body:not(.dark-mode) .progress-fill.week { background: #f59e0b; }
-body:not(.dark-mode) .progress-fill.month { background: #dc2626; }
-body:not(.dark-mode) .progress-fill.year { background: #16a34a; }
-
-/* ======================================================
-   页脚
-   ====================================================== */
+/* 页脚 */
 .footer {
     background-color: #181825;
     padding: 30px 0;
     margin-top: 50px;
     border-top: 1px solid #313244;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-body:not(.dark-mode) .footer {
-    background-color: #f8fafc;
-    border-top-color: #e2e8f0;
-}
-
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
     color: #a6adc8;
 }
-body:not(.dark-mode) .footer-content {
-    color: #64748b;
-}
 
-/* ======================================================
-   响应式
-   ====================================================== */
+/* 响应式 */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
     .sidebar {
         order: -1;
-        min-width: unset;
     }
     .post-card {
         flex-direction: column;
@@ -508,212 +307,269 @@ body:not(.dark-mode) .footer-content {
         width: 100%;
         height: 180px;
     }
-    .nav-container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-    .nav-links {
-        justify-content: center;
-    }
-    .search-box {
-        justify-content: center;
-    }
 }
 
-/* ======================================================
-   永久修复：点击失效
-   ====================================================== */
+
+/* 【永久修复点击失效】强制恢复所有元素点击权限 */
 * {
-    pointer-events: auto !important;
-    cursor: auto !important;
+  pointer-events: auto !important;
+  cursor: auto !important;
 }
+
+/* 加强核心可点击元素 */
 a, button, .post-card, .nav-item, .btn {
-    pointer-events: auto !important;
-    cursor: pointer !important;
-    z-index: 999 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 999 !important;
 }
 
-/* ======================================================
-   修复代码裸奔（隐藏 pre/code 裸奔内容）
-   ====================================================== */
+/* 【修复图片显示】确保文章封面正常渲染 */
+.post-cover img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* 【修复文章卡片样式】确保正常显示 */
+.post-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* 【修复代码裸奔】确保HTML不显示为文本 */
 pre, code {
-    display: none !important;
+  display: none !important;
 }
 
-/* ======================================================
-   分类页 & 首页文章列表（网格布局）
-   ====================================================== */
+
+/* 分类页 & 首页文章列表样式 */
 .posts-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
 }
 
-/* ======================================================
-   关于我页面
-   ====================================================== */
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.post-cover img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.post-info {
+  padding: 16px 20px;
+}
+
+.post-title a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: #3498db;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin: 8px 0;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.category-title, .welcome-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.category-desc, .welcome-desc {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+/* 关于我页面样式 */
 .about-page {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
+
 .about-avatar img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
 .about-name {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin: 16px 0 8px;
-}
-body:not(.dark-mode) .about-name {
-    color: #1a1a2e;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 16px 0 8px;
 }
 
 .about-bio {
-    font-size: 1rem;
-    color: #7f8c8d;
-    margin-bottom: 30px;
-}
-body:not(.dark-mode) .about-bio {
-    color: #64748b;
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
 }
 
 .about-section {
-    text-align: left;
-    margin: 30px 0;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 12px;
-    transition: background-color 0.3s ease;
-}
-body:not(.dark-mode) .about-section {
-    background: #f8fafc;
+  text-align: left;
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
 }
 
 .about-section h3 {
-    color: #2c3e50;
-    margin-bottom: 12px;
-}
-body:not(.dark-mode) .about-section h3 {
-    color: #1a1a2e;
+  color: #2c3e50;
+  margin-bottom: 12px;
 }
 
 .about-section ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
+
 .about-section li {
-    margin: 8px 0;
-    color: #555;
-}
-body:not(.dark-mode) .about-section li {
-    color: #334155;
+  margin: 8px 0;
+  color: #555;
 }
 
 .about-section a {
-    color: #3498db;
-    text-decoration: none;
-}
-body:not(.dark-mode) .about-section a {
-    color: #2563eb;
+  color: #3498db;
+  text-decoration: none;
 }
 
-/* ======================================================
-   文章详情页
-   ====================================================== */
+
+/* 文章详情页样式 */
 .post-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    line-height: 1.8;
-    color: #333;
-}
-body:not(.dark-mode) .post-content {
-    color: #1a1a2e;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  line-height: 1.8;
+  color: #333;
 }
 
 .post-content h1, .post-content h2, .post-content h3 {
-    color: #2c3e50;
-    margin: 24px 0 12px;
-}
-body:not(.dark-mode) .post-content h1,
-body:not(.dark-mode) .post-content h2,
-body:not(.dark-mode) .post-content h3 {
-    color: #1a1a2e;
+  color: #2c3e50;
+  margin: 24px 0 12px;
 }
 
 .post-content p {
-    margin: 16px 0;
+  margin: 16px 0;
 }
+
 .post-content img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin: 16px 0;
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 16px 0;
 }
+
 .post-content code {
-    background: #f8f9fa;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: monospace;
+  background: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
 }
+
 .post-content pre {
-    background: #2d2d2d;
-    color: #f8f8f2;
-    padding: 16px;
-    border-radius: 8px;
-    overflow-x: auto;
-    margin: 16px 0;
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 16px 0;
 }
 
-/* ======================================================
-   暗黑模式按钮
-   ====================================================== */
+
+/* 暗黑模式按钮样式 */
 .dark-mode-btn {
-    background: transparent;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-left: 20px;
-    color: inherit;
-    padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 20px;
+  color: inherit;
+  padding: 0;
 }
 
-/* ======================================================
-   全局暗黑模式（body.dark-mode 覆盖）
-   ====================================================== */
+/* 全局暗黑模式基础样式 */
 body.dark-mode {
-    background: #121212;
-    color: #e0e0e0;
+  background: #121212;
+  color: #e0e0e0;
 }
-body.dark-mode .header,
-body.dark-mode .sidebar,
+
+/* 暗黑模式下：头部、侧边栏、页脚背景 */
+body.dark-mode .header, 
+body.dark-mode .sidebar, 
 body.dark-mode .footer {
-    background: #1e1e1e;
-    border-color: #333;
+  background: #1e1e1e;
+  border-color: #333;
 }
+
+/* 暗黑模式下：文章卡片、分类页容器 */
 body.dark-mode .post-card,
 body.dark-mode .category-page,
 body.dark-mode .home-page {
-    background: #1e1e1e;
-    color: #e0e0e0;
+  background: #1e1e1e;
+  color: #e0e0e0;
 }
+
+/* 暗黑模式下：链接颜色 */
 body.dark-mode a {
-    color: #87ceeb;
+  color: #87ceeb;
 }
+
+/* 暗黑模式下：标题颜色 */
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3 {
-    color: #ffffff;
+  color: #ffffff;
 }
+
+/* 暗黑模式下：正文文字颜色 */
 body.dark-mode p,
 body.dark-mode span {
-    color: #e0e0e0;
+  color: #e0e0e0;
 }
