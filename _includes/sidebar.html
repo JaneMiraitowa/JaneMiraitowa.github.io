@@ -81,15 +81,15 @@
   <!-- 修正img标签空格，替换为你自己的头像路径 -->
   <img class="author-avatar" src="/assets/images/avatar.jpg" alt="我的头像">
   <h3 class="author-name">JaneMiraitowa</h3>
-  <p class="author-bio">不断学习✨<br>热爱技术与生活🚀<br>保持热爱 奔赴山海</p >
+  <p class="author-bio">不断学习✨<br>热爱技术与生活🚀<br>保持热爱 奔赴山海</p>
   <div class="author-stats">
     <div class="stat-item">
       <span class="stat-num">{{ site.posts | size }}</span>
-      <p class="stat-label">文章数</p >
+      <p class="stat-label">文章数</p>
     </div>
     <div class="stat-item">
       <span class="stat-num">5</span>
-      <p class="stat-label">评论量</p >
+      <p class="stat-label">评论量</p>
     </div>
   </div>
 </div>
@@ -97,25 +97,25 @@
 <div class="widget countdown-widget">
   <h4 class="widget-title">人生时间进度</h4>
   <div class="countdown-item">
-    <p>今日已过去 <span id="today-percent"></span></p >
+    <p>今日已过去 <span id="today-percent"></span></p>
     <div class="progress-bar">
       <div class="progress-fill today" style="width: 0%;"></div>
     </div>
   </div>
   <div class="countdown-item">
-    <p>本周已过去 <span id="week-percent"></span></p >
+    <p>本周已过去 <span id="week-percent"></span></p>
     <div class="progress-bar">
       <div class="progress-fill week" style="width: 0%;"></div>
     </div>
   </div>
   <div class="countdown-item">
-    <p>本月已过去 <span id="month-percent"></span></p >
+    <p>本月已过去 <span id="month-percent"></span></p>
     <div class="progress-bar">
       <div class="progress-fill month" style="width: 0%;"></div>
     </div>
   </div>
   <div class="countdown-item">
-    <p>本年已过去 <span id="year-percent"></span></p >
+    <p>本年已过去 <span id="year-percent"></span></p>
     <div class="progress-bar">
       <div class="progress-fill year" style="width: 0%;"></div>
     </div>
@@ -129,8 +129,11 @@ function updateProgress() {
   const todayEnd = new Date(todayStart.getTime() + 86400000);
   const todayPercent = ((now - todayStart) / (todayEnd - todayStart)) * 100;
 
+  // 🔧 修正：以周一为一周的开始（原代码以周日为起点）
+  const dayOfWeek = todayStart.getDay();           // 0=周日, 1=周一, ..., 6=周六
+  const diffToMonday = (dayOfWeek === 0 ? 6 : dayOfWeek - 1); // 距离周一的天数差
   const weekStart = new Date(todayStart);
-  weekStart.setDate(todayStart.getDate() - todayStart.getDay());
+  weekStart.setDate(todayStart.getDate() - diffToMonday);
   const weekEnd = new Date(weekStart.getTime() + 604800000);
   const weekPercent = ((now - weekStart) / (weekEnd - weekStart)) * 100;
 
