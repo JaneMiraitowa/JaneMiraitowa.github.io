@@ -573,3 +573,11 @@ body.dark-mode p,
 body.dark-mode span {
   color: #e0e0e0;
 }
+
+/* 关于我页面标题：浅色模式黑色，深色模式亮色 */
+body:not(.dark-mode) .about-section h3 {
+    color: #000000;
+}
+body.dark-mode .about-section h3 {
+    color: #f0f6fc;
+}
