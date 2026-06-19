@@ -12,13 +12,13 @@
     <div class="nav-container">
       <div class="logo">
         <i class="fa-solid fa-code"></i>
-        <span>Jane的个人博客</span>
+        <span>Jane的小屋</span>   <!-- 改成“小屋” -->
       </div>
       <nav class="nav-links">
-        <a href=" ">首页</a >
-        <a href="/category/生活日常/">生活日常</a >
-        <a href="/category/技术笔记/">技术笔记</a >
-        <a href="/about.html">关于我</a >
+        <a href="/">首页</a>   <!-- 关键修复：去掉空格，改成 / -->
+        <a href="/category/生活日常/">生活日常</a>
+        <a href="/category/技术笔记/">技术笔记</a>
+        <a href="/about.html">关于我</a>
         <button id="darkModeToggle" class="dark-mode-btn">🌙 暗黑模式</button>
       </nav>
     </div>
@@ -34,7 +34,7 @@
   </div>
 
   <footer class="footer">
-    <p>© {{ site.time | date: "%Y" }} Jane的个人博客 | Powered by Jekyll & GitHub Pages</p >
+    <p>© {{ site.time | date: "%Y" }} Jane的小屋 | Powered by Jekyll & GitHub Pages</p>   <!-- 也改成“小屋” -->
   </footer>
   
 <script>
