@@ -9,7 +9,7 @@ layout: default
     <span class="post-cate">{{ cat }}</span>
     {% endfor %}
   </div>
-  <div style="margin-top:20px;line-height:1.9;font-size:16px">
+  <div class="post-content" style="margin-top:20px;line-height:1.9;font-size:16px">
     {{ content }}
   </div>
 </article>
@@ -34,6 +34,7 @@ var gitalk = new Gitalk({
 });
 gitalk.render('gitalk-container');
 </script>
+
 {% include comments.html %}
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
