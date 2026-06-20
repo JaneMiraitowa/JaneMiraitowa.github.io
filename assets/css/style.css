@@ -587,3 +587,24 @@ body.dark-mode .about-section h3 {
 .article-content p {
     text-indent: 2em;
 }
+
+/* 万能首行缩进 - 针对所有文章页面的段落 */
+article p,
+.post p,
+.content p,
+main p,
+.about-section p {
+    text-indent: 2em !important;
+}
+
+/* 针对 post.html 布局中的内容 */
+.post-content p {
+    text-indent: 2em !important;
+}
+
+/* 如果上面都不行，直接对所有 p 标签生效（最暴力） */
+body .post-card p,
+body .main-content p,
+body .container p {
+    text-indent: 2em !important;
+}
