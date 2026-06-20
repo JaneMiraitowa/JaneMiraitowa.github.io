@@ -625,3 +625,30 @@ body.dark-mode .post-content blockquote {
 article .post-content p {
     text-indent: 2em !important;
 }
+
+
+/* ======================================================
+   强制修复：深色模式下文章正文为亮白色（清晰可见）
+   ====================================================== */
+body.dark-mode .post-content * {
+    color: #ffffff !important;
+}
+
+body.dark-mode .post-content p,
+body.dark-mode .post-content div,
+body.dark-mode .post-content span,
+body.dark-mode .post-content h1,
+body.dark-mode .post-content h2,
+body.dark-mode .post-content h3,
+body.dark-mode .post-content h4,
+body.dark-mode .post-content li,
+body.dark-mode .post-content blockquote,
+body.dark-mode .post-content strong,
+body.dark-mode .post-content em {
+    color: #ffffff !important;
+}
+
+/* 同时确保浅色模式下文字为深色（清晰） */
+body:not(.dark-mode) .post-content * {
+    color: #1a1a2e !important;
+}
