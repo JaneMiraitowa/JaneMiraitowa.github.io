@@ -608,3 +608,16 @@ body .main-content p,
 body .container p {
     text-indent: 2em !important;
 }
+
+/* 强制所有文章正文段落首行缩进2字符 */
+article p,
+section p,
+.content p,
+.post p,
+main p,
+.post-content p,
+.entry-content p,
+[class*="content"] p,
+[class*="post"] p {
+    text-indent: 2em !important;
+}
