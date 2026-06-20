@@ -582,28 +582,46 @@ body.dark-mode .about-section h3 {
     color: #f0f6fc;
 }
 
-/* 文章正文段落首行缩进2字符（针对 post.html 中的 .post-content） */
+/* ======================================================
+   文章正文颜色修复（浅色/深色模式自适应）
+   ====================================================== */
+
+/* 浅色模式（默认）：文章正文为深色 */
+.post-content,
+.post-content p,
+.post-content span,
+.post-content div,
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content li,
+.post-content blockquote {
+    color: #1a1a2e !important;
+}
+
+/* 深色模式：文章正文为亮色 */
+body.dark-mode .post-content,
+body.dark-mode .post-content p,
+body.dark-mode .post-content span,
+body.dark-mode .post-content div,
+body.dark-mode .post-content h1,
+body.dark-mode .post-content h2,
+body.dark-mode .post-content h3,
+body.dark-mode .post-content h4,
+body.dark-mode .post-content li,
+body.dark-mode .post-content blockquote {
+    color: #e8e8e8 !important;
+}
+
+/* ======================================================
+   文章正文段落首行缩进2字符
+   ====================================================== */
 .post-content p {
     text-indent: 2em !important;
 }
 
-/* 同时针对直接子元素，防止嵌套丢失 */
+/* 防止嵌套丢失 */
 article .post-content p {
     text-indent: 2em !important;
-}
-
-/* 修复文章正文在深色模式下的字体颜色 */
-body.dark-mode .post-content,
-body.dark-mode .post-content p,
-body.dark-mode .post-content span,
-body.dark-mode .post-content div {
-    color: #e0e0e0 !important;
-}
-
-/* 浅色模式下文章正文颜色（深灰色，清晰） */
-body:not(.dark-mode) .post-content,
-body:not(.dark-mode) .post-content p,
-body:not(.dark-mode) .post-content span,
-body:not(.dark-mode) .post-content div {
-    color: #1a1a2e !important;
 }
