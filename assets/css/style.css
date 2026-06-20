@@ -591,3 +591,19 @@ body.dark-mode .about-section h3 {
 article .post-content p {
     text-indent: 2em !important;
 }
+
+/* 修复文章正文在深色模式下的字体颜色 */
+body.dark-mode .post-content,
+body.dark-mode .post-content p,
+body.dark-mode .post-content span,
+body.dark-mode .post-content div {
+    color: #e0e0e0 !important;
+}
+
+/* 浅色模式下文章正文颜色（深灰色，清晰） */
+body:not(.dark-mode) .post-content,
+body:not(.dark-mode) .post-content p,
+body:not(.dark-mode) .post-content span,
+body:not(.dark-mode) .post-content div {
+    color: #1a1a2e !important;
+}
