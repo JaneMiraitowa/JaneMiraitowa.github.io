@@ -582,42 +582,12 @@ body.dark-mode .about-section h3 {
     color: #f0f6fc;
 }
 
-/* 文章正文段落首行缩进2字符 */
-.post-content p,
-.article-content p {
-    text-indent: 2em;
-}
-
-/* 万能首行缩进 - 针对所有文章页面的段落 */
-article p,
-.post p,
-.content p,
-main p,
-.about-section p {
-    text-indent: 2em !important;
-}
-
-/* 针对 post.html 布局中的内容 */
+/* 文章正文段落首行缩进2字符（针对 post.html 中的 .post-content） */
 .post-content p {
     text-indent: 2em !important;
 }
 
-/* 如果上面都不行，直接对所有 p 标签生效（最暴力） */
-body .post-card p,
-body .main-content p,
-body .container p {
-    text-indent: 2em !important;
-}
-
-/* 强制所有文章正文段落首行缩进2字符 */
-article p,
-section p,
-.content p,
-.post p,
-main p,
-.post-content p,
-.entry-content p,
-[class*="content"] p,
-[class*="post"] p {
+/* 同时针对直接子元素，防止嵌套丢失 */
+article .post-content p {
     text-indent: 2em !important;
 }
