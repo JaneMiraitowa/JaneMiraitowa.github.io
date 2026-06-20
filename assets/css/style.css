@@ -581,3 +581,9 @@ body:not(.dark-mode) .about-section h3 {
 body.dark-mode .about-section h3 {
     color: #f0f6fc;
 }
+
+/* 文章正文段落首行缩进2字符 */
+.post-content p,
+.article-content p {
+    text-indent: 2em;
+}
